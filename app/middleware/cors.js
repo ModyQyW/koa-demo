@@ -1,0 +1,31 @@
+const getCorsMiddleware = require('koa2-cors');
+
+module.exports = getCorsMiddleware({
+  origin: '*',
+  exposeHeaders: [
+    'Accept',
+    'Accept-Charset',
+    'Accept-Encoding',
+    'Access-Control-Allow-Credentials',
+    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Methods',
+    'Access-Control-Allow-Origin',
+    'Access-Control-Expose-Headers',
+    'Access-Control-Max-Age',
+    'Cache-Control',
+    'Connection',
+    'Content-Language',
+    'Content-Length',
+    'Content-Type',
+    'Date',
+    'Expires',
+    'Last-Modified',
+    'Server',
+    'Vary',
+    'Pragma',
+    'X-Device',
+    'X-Token',
+  ],
+  maxAge: 5,
+  credentials: true,
+});

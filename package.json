@@ -1,0 +1,74 @@
+{
+  "name": "koa-demo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A simple demo for new Koaer.",
+  "author": {
+    "name": "ModyQyW",
+    "email": "wurui7@mail3.sysu.edu.cn",
+    "url": "https://modyqyw.github.io"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "pm2:start": "pm2 start app.js",
+    "pm2:list": "pm2 ls",
+    "pm2:stop": "pm2 stop",
+    "check": "ncu",
+    "commit": "cz",
+    "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
+    "lint:json": "prettier ./**/*.json --write",
+    "lint:markdown": "markdownlint . --fix",
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
+  },
+  "dependencies": {
+    "dayjs": "~1.10.4",
+    "faker": "~5.4.0",
+    "koa": "~2.13.1",
+    "koa-bodyparser": "~4.3.0",
+    "koa-logger": "~3.2.1",
+    "koa-router": "~10.0.0",
+    "koa2-cors": "~2.0.6",
+    "mime": "~2.5.0",
+    "pm2": "~4.5.4"
+  },
+  "devDependencies": {
+    "@modyqyw/fabric": "~1.15.1",
+    "@types/faker": "~5.1.6",
+    "@types/koa": "~2.11.8",
+    "@types/koa-bodyparser": "~4.3.0",
+    "@types/koa-logger": "~3.1.1",
+    "@types/koa-router": "~7.4.1",
+    "@types/koa2-cors": "~2.0.1",
+    "@types/mime": "~2.0.3",
+    "@types/node": "~14.14.27",
+    "babel-eslint": "~10.1.0",
+    "commitizen": "~4.2.3",
+    "commitlint": "~11.0.0",
+    "eslint": "~7.20.0",
+    "husky": "~4.3.8",
+    "lint-staged": "~10.5.4",
+    "markdownlint-cli": "~0.26.0",
+    "npm-check-updates": "~11.1.1",
+    "prettier": "~2.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": ">=12 <13 || >=14 <15"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.json": "prettier --write",
+    "*.md": "markdownlint --fix",
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
+  }
+}

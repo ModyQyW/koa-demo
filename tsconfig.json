@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["esnext"],
+    "allowJs": true,
+    "noEmit": true
+  },
+  "exclude": ["node_modules"]
+}
